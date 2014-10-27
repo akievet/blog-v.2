@@ -1,0 +1,22 @@
+require 'bundler'
+Bundler.require
+
+require 'sinatra/activerecord/rake'
+require './connection'
+
+namespace :db do
+  desc 'create blog database'
+  task :create_db do
+    conn = PG::Connection.open()
+    conn.exec('CREATE DATABASE blog;')
+    conn.close
+  end
+  desc 'drop blog database'
+  task :drop_db do
+    conn = PG::Connection.open()
+    conn.exec('DROP DATABASE blog;')
+    conn.close
+  end
+
+
+end

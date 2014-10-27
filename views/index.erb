@@ -1,0 +1,18 @@
+<% @posts.each do |post| %>
+	<div class="post-title">
+		<h1><%= post.title %></h1><br>
+		<h3><%= post.subtitle %></h3>
+	</div>
+	<div class="post-body">
+		<%= post.body %>
+	</div>
+	<div class="post-footer">
+		Created At: <%= post.created_at %> by <%= post.author %>
+	</div>
+	<div class="tags">
+		<%= post.tags_to_s %>
+	</div>
+	<% if admin %>
+		<a href="/posts/<%= post.id %>/edit">Edit</a>
+	<% end %>
+<% end %>
