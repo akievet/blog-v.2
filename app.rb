@@ -14,6 +14,8 @@ get '/console' do
 end
 
 get '/' do
+  images= ['010130005.JPG', '010130009.JPG', '010130015.JPG', '010130019.JPG']
+  @image= images.select
   @posts= Post.order(created_at: :desc)
   erb :index
 end
@@ -50,31 +52,77 @@ end
 
 get '/posts/new' do
   admin_only!
+  @tags= Tag.all
   erb :'posts/new'
 end
 
 post '/posts' do
-  post= Post.create({title: params[:title], subtitle: params[:subtitle], body: params[:body], user_id: current_user.id})
-  tags= (params[:tags]).split(",")
-  tags.each do |tag|
-    Tag.create({word: tag, post_id: post.id})
+  binding.pry
+  body= params[:body].gsub!("\r\n", "<br>")
+  post= Post.create({title: params[:title], subtitle: params[:subtitle], body: body, user_id: current_user.id})
+  tag_ids= params[:word]
+  tag_ids.each do |tag_id|
+    tag_id= tag_id.to_i
+    TagInstance.create({tag_id: tag_id, post_id: post.id})
   end
   redirect '/'
 end
 
 get '/posts/:id' do
   @post= Post.find(params[:id])
+  @tags= @post.tags
   erb :'posts/show'
 end
 
 get '/posts/:id/edit' do
   admin_only!
   @post= Post.find(params[:id])
+  if @post.body
+    @post.body.gsub!("<br>", "\r\n")
+  end
   erb :'posts/edit'
 end
 
 patch '/posts/:id' do
   post= Post.find(params[:id])
-  post.update(params[:post])
-  redirect "/posts/#{post.id}"
+  body= params[:body].gsub!("\r\n", "<br>")
+  post.update(title: params[:title], subtitle: params[:subtitle], body: body)
+  redirect "/"
+end
+
+delete '/posts/:id' do
+  Post.destroy(params[:id])
+  redirect '/'
+end
+
+
+get '/tags' do
+  @tags= Tag.all
+  erb :'tags/index'
+end
+
+get '/tags/new' do
+  erb :'tags/new'
+end
+
+post '/tags' do
+  Tag.create({word: params[:word]})
+  redirect '/tags'
+end
+
+
+get '/tags/:id/edit' do
+  @tag= Tag.find(params[:id])
+  erb :'tags/show'
+end
+
+patch '/tags/:id' do
+  tag= Tag.find(params[:id])
+  tag.update({word: params[:word]})
+  redirect "/tags"
+end
+
+delete '/tags/:id' do
+  Tag.destroy(params[:id])
+  redirect "/tags"
 end

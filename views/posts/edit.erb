@@ -1,8 +1,10 @@
+<div class="twelve columns offset-by-two">
 <h1>Edit Post</h1>
 <form action="/posts/<%= @post.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">
-	Title: <input type="text" name="post[title]" value="<%= @post.title %>">
-	Subtitle: <input type="text" name="post[subtitle]" value="<%= @post.subtitle %>">
-	Body: <input type="text" name="post[body]" value="<%= @post.body %>">
+	Title: <input type="text" name="title" value="<%= @post.title %>">
+	Subtitle: <input type="text" name="subtitle" value="<%= @post.subtitle %>">
+	Body: <textarea name="body" rows="15" cols="100%"><%= @post.body %></textarea>
 	<input type="submit" value="Edit Post">
 </form>
+</div>

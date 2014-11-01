@@ -1,8 +1,13 @@
-<h1>New Post</h1>
-<form action="/posts" method="post">
-	Title: <input type="text" name="title">
-	Subtitle: <input type="text" name="subtitle">
-	Body: <input type="text" name="body">
-	Tags: <input type="text" name="tags">
-	<input type="submit" value="Add Post">
-</form>
+<div class="twelve columns offset-by-two">
+	<h1>New Post</h1>
+	<form action="/posts" method="post">
+		Title: <input type="text" name="title">
+		Subtitle: <input type="text" name="subtitle">
+		Body: <textarea name="body" rows="15" cols="100%"></textarea>
+		Tags: <br>
+		<% @tags.each do |tag| %>
+		<input type="checkbox" name="word[]" value="<%= tag.id %>"><%= tag.word %><br>
+		<% end %>
+		<input type="submit" value="Add Post">
+	</form>
+</div>

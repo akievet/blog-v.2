@@ -1,9 +1,13 @@
-<ul>
-	<li><a href="/">Home</a></li>
-	<li>
-		<form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Log-Out">
-  </form>
-	</li>
-</ul>
+<section class="intro">
+	<div class="nav-wrap">
+		<ul class="navbar">
+			<li><a href="/">Home</a></li>
+			<li>
+				<form action="/sessions" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Log-Out" class="auth-button">
+				</form>
+			</li>
+		</ul>
+	</div>
+</section>

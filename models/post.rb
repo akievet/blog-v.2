@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   has_many :users
-  has_many :tags
+  has_many :tag_instances
+  has_many(:tags, :through => :tag_instances)
   has_many :comments
   has_many :images
 
@@ -11,8 +12,4 @@ class Post < ActiveRecord::Base
     "#{first} #{last}"
   end
 
-  def tags_to_s
-    tag_a= self.tags.map {|tag| tag.word}
-    tag_a.join(", ")
-  end
 end

@@ -44,7 +44,7 @@
 
 	
 
-	<div class="container">
+	<div class="intro">
 		<% if admin %>
 			<%= erb :'nav/_navigation_for_admin'%>
 		<% elsif current_user %>
@@ -52,6 +52,8 @@
 		<% else %>
 			<%= erb :'nav/_navigation_for_non_user'%>
 		<% end %>
+	</div>
+	<div class="container">
 		
 		<%= yield %>
 		

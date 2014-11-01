@@ -5,6 +5,7 @@ gem 'sinatra-activerecord'
 gem 'pg'
 
 gem 'bcrypt'
+gem 'guard-livereload'
 
 gem 'rake'
 gem 'pry'

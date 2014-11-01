@@ -1,0 +1,9 @@
+<form action="/tags/<%= @tag.id %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+	<input type="text" name="word" value="<%= @tag.word %>">
+	<input type="submit" value="Edit Tag">
+</form>
+<form action="/tags/<%= @tag.id %>" method="post">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete">
+</form>
