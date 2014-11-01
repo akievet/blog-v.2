@@ -80,6 +80,7 @@ get '/posts/:id/edit' do
   if @post.body
     @post.body.gsub!("<br>", "\r\n")
   end
+  @tags= @post.tags
   erb :'posts/edit'
 end
 
@@ -87,6 +88,7 @@ patch '/posts/:id' do
   post= Post.find(params[:id])
   body= params[:body].gsub!("\r\n", "<br>")
   post.update(title: params[:title], subtitle: params[:subtitle], body: body)
+
   redirect "/"
 end
 
@@ -95,6 +97,28 @@ delete '/posts/:id' do
   redirect '/'
 end
 
+get '/posts/:id/tags' do
+  @post= Post.find(params[:id])
+  @current_tags = @post.tags
+  @other_tags = (Tag.all - @current_tags)
+  erb :'posts/tags/edit'
+end
+
+post '/posts/:id/tags' do
+  post= Post.find(params[:id])
+  current_instances= post.tag_instances
+  current_instances.each do |tag_instance|
+    TagInstance.destroy(tag_instance.id)
+  end
+
+  tag_ids= params[:word]
+  tag_ids.each do |tag_id|
+    tag_id= tag_id.to_i
+    TagInstance.create({tag_id: tag_id, post_id: post.id})
+  end
+
+  redirect "/posts/#{post.id}"
+end
 
 get '/tags' do
   @tags= Tag.all

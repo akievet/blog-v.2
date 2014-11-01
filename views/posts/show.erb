@@ -10,10 +10,10 @@
 </div>
 <div class="tags">
 	<ul>
-	<% @tags.each do |tag| %>
-	<li><%= tag.word %></li>
-	<% end %>
-</ul>
+		<% @tags.each do |tag| %>
+		<li><%= tag.word %></li>
+		<% end %>
+	</ul>
 </div>
 <% if admin %>
 <a href="/posts/<%= @post.id %>/edit">Edit</a>

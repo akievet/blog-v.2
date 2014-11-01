@@ -1,0 +1,9 @@
+<form action="/posts/<%= @post.id %>/tags" method="post">
+	<% @current_tags.each do |tag| %>	
+	<input type="checkbox" name="word[]" value="<%= tag.id %>" checked><%= tag.word %><br>
+	<% end %>
+	<% @other_tags.each do |tag| %>
+	<input type="checkbox" name="word[]" value="<%= tag.id %>"><%= tag.word %><br>
+	<% end %>
+	<input type="submit" value="Save Changes">
+</form>

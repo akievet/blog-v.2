@@ -8,3 +8,12 @@
 	<input type="submit" value="Edit Post">
 </form>
 </div>
+<div>
+	<h4>Current Tags</h4>
+	<% @tags.each do |tag| %>
+	<ul>
+		<li><%= tag.word %></li>
+	</ul>
+	<% end %>
+	<a href="/posts/<%= @post.id %>/tags">Manage Tags</a>
+</div>
