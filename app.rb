@@ -131,6 +131,13 @@ post '/posts/:id/tags/new' do
   redirect "/posts/#{post.id}/tags"
 end
 
+get '/tagged/:word' do
+  tag = Tag.where(word: params[:word])
+  @posts= tag[0].posts
+
+  erb :'tagged/show'
+end
+
 get '/tags' do
   @tags= Tag.all
   erb :'tags/index'
