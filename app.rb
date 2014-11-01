@@ -120,13 +120,20 @@ post '/posts/:id/tags' do
   redirect "/posts/#{post.id}"
 end
 
+get '/posts/:id/tags/new' do
+  @post= Post.find(params[:id])
+  erb :'posts/tags/new'
+end
+
+post '/posts/:id/tags/new' do
+  post= Post.find(params[:id])
+  Tag.create({word: params[:word]})
+  redirect "/posts/#{post.id}/tags"
+end
+
 get '/tags' do
   @tags= Tag.all
   erb :'tags/index'
-end
-
-get '/tags/new' do
-  erb :'tags/new'
 end
 
 post '/tags' do
