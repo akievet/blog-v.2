@@ -8,13 +8,13 @@ class PostsController < ApplicationController
   post '/' do
     binding.pry
     body= params[:body].gsub!("\r\n", "<br>")
-    post= Post.create({title: params[:title], subtitle: params[:subtitle], body: body, user_id: current_user.id})
+    post= Post.create({title: params[:title], subtitle: params[:subtitle], body: body, head_img: params[:image], user_id: current_user.id})
     tag_ids= params[:word]
     tag_ids.each do |tag_id|
       tag_id= tag_id.to_i
       TagInstance.create({tag_id: tag_id, post_id: post.id})
     end
-    redirect '/'
+    redirect "/"
   end
 
   get '/:id' do
@@ -36,9 +36,9 @@ class PostsController < ApplicationController
   patch '/:id' do
     post= Post.find(params[:id])
     body= params[:body].gsub!("\r\n", "<br>")
-    post.update(title: params[:title], subtitle: params[:subtitle], body: body)
+    post.update(title: params[:title], subtitle: params[:subtitle], body: body, head_img: params[:image])
 
-    redirect "/"
+    redirect "/posts/#{post.id}"
   end
 
   delete '/:id' do

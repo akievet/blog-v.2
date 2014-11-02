@@ -53,7 +53,7 @@
 ================================================== */
 	body {
 		background: #fff;
-		font: 22px/33px "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+		font:20px/33px "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
@@ -75,7 +75,16 @@
 	h6 { font-size: 14px; line-height: 21px; }
 	.subheader { color: #777; }
 
-	p { margin: 0 0 20px 0; }
+	nav,
+	.logout input[type="submit"] {
+		font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+		font-size: 10pt;
+		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: 1.5px;
+	}
+
+	p { margin: 0 0 20px 0}
 	p img { margin: 0; }
 	p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
@@ -120,7 +129,9 @@
 /* #Images
 ================================================== */
 
+	img,
 	img.scale-with-grid {
+		outline: 0;
 		max-width: 100%;
 		height: auto; }
 

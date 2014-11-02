@@ -6,18 +6,18 @@
 <head>
 
 	<!-- Basic Page Needs
-  ================================================== -->
+	================================================== -->
 	<meta charset="utf-8">
 	<title>Journal</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<!-- Mobile Specific Metas
-  ================================================== -->
+	================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 	<!-- CSS
-  ================================================== -->
+	================================================== -->
 	<link rel="stylesheet" href="/stylesheets/base.css">
 	<link rel="stylesheet" href="/stylesheets/skeleton.css">
 	<link rel="stylesheet" href="/stylesheets/layout.css">
@@ -26,10 +26,11 @@
 
 	<script src='/javascripts/jquery.js'></script>
 	<script src='/javascripts/scripts.js'></script>
+	
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+		<![endif]-->
 
 	<!-- Favicons
 	================================================== -->
@@ -50,14 +51,14 @@
 
 	<div class="intro">
 		<% if admin %>
-			<%= erb :'nav/_navigation_for_admin'%>
+		<%= erb :'nav/_navigation_for_admin'%>
 		<% elsif current_user %>
-			<%= erb :'nav/_navigation_for_user'%>
+		<%= erb :'nav/_navigation_for_user'%>
 		<% else %>
-			<%= erb :'nav/_navigation_for_non_user'%>
+		<%= erb :'nav/_navigation_for_non_user'%>
 		<% end %>
-	</div>
-	<div class="container">
+	</div>	
+	<div class="container">	
 		
 		<%= yield %>
 		
@@ -65,6 +66,6 @@
 
 
 <!-- End Document
-================================================== -->
+	================================================== -->
 </body>
 </html>

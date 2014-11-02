@@ -1,7 +1,10 @@
-<div class="post-title">
-	<h1><%= @post.title %></h1><br>
-	<h3><%= @post.subtitle %></h3>
-</div>
+<section>
+	<img src="<%= @post.head_img %>" class="scale-with-grid">
+	<div class="post-title">
+		<h1><%= @post.title %></h1><br>
+		<h3><%= @post.subtitle %></h3>
+	</div>
+</section>
 <div class="post-body">
 	<%= @post.body %>
 </div>

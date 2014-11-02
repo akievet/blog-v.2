@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030220639) do
+ActiveRecord::Schema.define(version: 20141102150515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141030220639) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "head_img",   default: "https://c715274.ssl.cf2.rackcdn.com/ckeditor_assets/pictures/501bab58960a562429000004/content_qs-icons-add.png"
   end
 
   create_table "tag_instances", force: true do |t|

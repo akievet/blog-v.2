@@ -1,18 +1,17 @@
 <div class="fourteen columns offset-by-two">
-<% @posts.each do |post| %>
+	<% @posts.each do |post| %>
 	<div class="post-title">
 		<a href="/posts/<%= post.id %>"><h1><%= post.title %></h1></a><br>
 		<h3><%= post.subtitle %></h3>
 	</div>
-	</section>
 	<div class="post-body">
-		<%= post.body %>
+		<p><%= post.body %></p>
 	</div>
 	<div class="post-footer">
 		Created At: <%= post.created_at %> by <%= post.author %>
 	</div>
 	<% if admin %>
-		<a href="/posts/<%= post.id %>/edit">Edit</a>
+	<a href="/posts/<%= post.id %>/edit">Edit</a>
 	<% end %>
-<% end %>
+	<% end %>
 </div>
