@@ -20,6 +20,15 @@ class PostsController < ApplicationController
   get '/:id' do
     @post= Post.find(params[:id])
     @tags= @post.tags
+    posts = Post.order('created_at')
+    index = posts.index(@post) - 1
+    if posts[index] == nil
+      @next= posts.sample
+      @next_desc = "Suggested"
+    else
+      @next_desc = "Up Next"
+      @next= posts[index]
+    end
     erb :'posts/show'
   end
 

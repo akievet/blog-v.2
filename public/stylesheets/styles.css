@@ -144,9 +144,7 @@ h3.title{
 	margin-top: 10px;
 }
 
-.subtitle{
-	margin-top: -30px;
-}
+
 h4.subtitle{
 	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
 }
@@ -158,6 +156,9 @@ h4.subtitle{
 	color: #999;
 }
 
+div.next-article{
+	width: 100%;
+}
 
 div.footer{
 	height: 100px;
