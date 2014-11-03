@@ -5,13 +5,13 @@
 		<h3><%= @post.subtitle %></h3>
 	</div>
 </section>
-<div class="post-body">
+<div class="post-body fourteen columns offset-by-one">
 	<%= @post.body %>
 </div>
-<div class="post-footer">
+<div class="post-footer fourteen columns offset-by-one">
 	Created At: <%= @post.created_at %> by <%= @post.author %>
 </div>
-<div class="tags">
+<div class="tags fourteen columns offset-by-one">
 	<ul>
 		<% @tags.each do |tag| %>
 		<li><a href="/tagged/<%= tag.word %>"><%= tag.word %></a></li>

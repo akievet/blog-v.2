@@ -1,17 +1,32 @@
-<div class="fourteen columns offset-by-two">
+<div id="main-title">
+	<h1>Journal</h1>
+	<h4>Wandering thoughts of Amanda Kievet.</h4>
+</div>
 	<% @posts.each do |post| %>
-	<div class="post-title">
-		<a href="/posts/<%= post.id %>"><h1><%= post.title %></h1></a><br>
-		<h3><%= post.subtitle %></h3>
-	</div>
-	<div class="post-body">
-		<p><%= post.body %></p>
-	</div>
-	<div class="post-footer">
-		Created At: <%= post.created_at %> by <%= post.author %>
-	</div>
+	<a href="/posts/<%= post.id %>">
+	<div class="sixteen columns post-title ">
+		<hr>
+		<div style="height: 50px;"></div>
+		<div class="five columns alpha">
+			<img src="<%= post.head_img %>">
+		</div>
+		<div class="eleven columns omega">
+			<h3 class="title"><%= post.title %></h3><br>
+			<h4 class="subtitle"><%= post.subtitle %></h4>
+		
+			<div class="post-footer">
+				<p>Created At: <%= post.created_at %> by <%= post.author %></p>
+			</div>
+		</div>
+		</a>
+	
+
+
+
+
 	<% if admin %>
 	<a href="/posts/<%= post.id %>/edit">Edit</a>
 	<% end %>
 	<% end %>
-</div>
+
+	</div>

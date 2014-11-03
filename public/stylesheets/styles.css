@@ -165,18 +165,18 @@ POST STYLES
 =====================================================*/
 
 div.post-title{
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 section div.post-title{
-	margin-top: 400px;
+	margin-top: 40%;
 }
 section h1{
 	color: #fff;
-	font-size: 72px;
+	font-size: 6.0vw;
 	text-transform: uppercase;
 	font-weight: bold;
-	letter-spacing: 5px;
+	letter-spacing: 0.5vw;
 	text-align: center;
 }
 
@@ -184,8 +184,44 @@ section h3{
 	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
 	color: white;
 	text-align: center;
-	margin-top: -25px;
+	margin-top: -5vh;
 }
 
 
+#main-title{
+	margin: 100px 0;
+	text-align: center;
+}
+
+#main-title h4{
+	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
+}
+
+.post-title a {
+	text-decoration: none;
+}
+
+h3.title{
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+
+
+h4.subtitle{
+	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;;
+}
+
+.post-footer{
+	padding-top: 20px;
+}
+
+
+div.footer{
+	height: 100px;
+}
+
+footer div{
+	height: 100px;
+}
 
