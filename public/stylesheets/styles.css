@@ -85,69 +85,6 @@ nav li{
 
 
 /*=====================================================*/
-/*HOVER NAV BAR*/
-/*=====================================================*/
-
-
-/*
-.nav-wrap{
-	width: 100%;
-	min-width: 300px;
-	height: 50px;
-	margin: 0;
-	z-index: 99;
-	position: relative;
-}
-
-.navbar{
-	text-align: center;
-	height: 50px;
-	padding: 0;
-	margin: 0;
-	position: absolute;
-}
-
-.navbar li{
-	height: auto;
-	width: 100px;
-	float: left;
-	text-align: center;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-
-.navbar a {
-	padding: 13px 0;
-	text-decoration: none;
-	color: white;
-	display: block;
-}
-
-.navbar li:hover,
-.navbar a:hover {
-}
-
-.navbar li ul{
-	display: none;
-	height: auto;
-	margin: 0;
-	padding: 0;
-}
-
-.navbar li:hover ul{
-	display: block;
-}
-
-.navbar li ul li{
-	background-color: #fcff24;
-}
-*/
-
-
-
-/*=====================================================*/
 /*FORM STYLES*/
 /*=====================================================*/
 
@@ -204,16 +141,21 @@ section h3{
 h3.title{
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	margin-top: 10px;
 }
 
-
-
+.subtitle{
+	margin-top: -30px;
+}
 h4.subtitle{
-	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;;
+	font-family: "Cambo","Hoefler Text","Baskerville Old Face",Garamond,"Times New Roman",serif;
 }
 
-.post-footer{
-	padding-top: 20px;
+.post-date h6{
+	text-transform: uppercase;
+	font-size: 12px; 
+	letter-spacing: 1.5px;
+	color: #999;
 }
 
 

@@ -11,12 +11,11 @@
 			<img src="<%= post.head_img %>">
 		</div>
 		<div class="eleven columns omega">
+			<div class="post-date">
+				<h6><%= post.date %></h6>
+			</div>
 			<h3 class="title"><%= post.title %></h3><br>
 			<h4 class="subtitle"><%= post.subtitle %></h4>
-		
-			<div class="post-footer">
-				<p>Created At: <%= post.created_at %> by <%= post.author %></p>
-			</div>
 		</div>
 		</a>
 	
