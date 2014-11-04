@@ -1,9 +1,10 @@
+
 <div id="main-title">
 	<h1>Journal</h1>
 	<h4>Wandering thoughts of Amanda Kievet.</h4>
 </div>
-	<% @posts.each do |post| %>
-	<a href="/posts/<%= post.id %>">
+<% @posts.each do |post| %>
+<a href="/posts/<%= post.id %>">
 	<div class="sixteen columns post-title ">
 		<hr>
 		<div style="height: 50px;"></div>
@@ -17,15 +18,12 @@
 			<h3 class="title"><%= post.title %></h3>
 			<h4 class="subtitle"><%= post.subtitle %></h4>
 		</div>
-		</a>
 	
-
-
-
-
+</a>
 	<% if admin %>
-	<a href="/posts/<%= post.id %>/edit">Edit</a>
+		<a href="/posts/<%= post.id %>/edit">Edit</a>
 	<% end %>
-	<% end %>
-
 	</div>
+<% end %>
+
+</div>

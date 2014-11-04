@@ -1,4 +1,4 @@
-<div class="twelve columns offset-by-two">
+<div class="eleven columns">
 <h1>Edit Post</h1>
 <form action="/posts/<%= @post.id %>" method="post">
 	<input type="hidden" name="_method" value="patch">
@@ -9,7 +9,7 @@
 	<input type="submit" value="Edit Post">
 </form>
 </div>
-<div>
+<div class="four columns offset-by-one">
 	<h4>Current Tags</h4>
 	<% @tags.each do |tag| %>
 	<ul>
@@ -17,4 +17,15 @@
 	</ul>
 	<% end %>
 	<a href="/posts/<%= @post.id %>/tags">Manage Tags</a>
+
+	<h4>Body Image(s)</h4>
+	<% @images.each do |image| %>
+		<img src="<%= image.image_src %>" class="img-thumb">
+		<p><%= image.caption %></p>
+		<form action="/posts/<%= @post.id %>/images/<%= image.id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+			<input type="submit" value="Delete Image">
+		</form>
+	<% end %>
+	<a href="/posts/<%= @post.id %>/images/new">Add an Image</a>
 </div>

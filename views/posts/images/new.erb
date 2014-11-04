@@ -1,0 +1,9 @@
+<div class="six columns">
+<h2>Add a Image</h2>
+<form action="/posts/<%= @post.id %>/images" method="post">
+	Url: <input type="text" name="img[image_src]">
+	Caption: <input type="text" name="img[caption]">
+	<input type="hidden" name="img[post_id]" value="<%= @post.id %>">
+	<input type="submit" value="Add Image">
+</form>
+</div>

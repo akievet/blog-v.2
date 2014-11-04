@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
   set :public, File.expand_path('../../public', __FILE__)
 
   enable :sessions, :method_override
+  after { ActiveRecord::Base.connection.close }
 
   get '/' do
     @posts= Post.order(created_at: :desc)

@@ -6,9 +6,11 @@ class PostsController < ApplicationController
   end
 
   post '/' do
-    binding.pry
     body= params[:body].gsub!("\r\n", "<br>")
     post= Post.create({title: params[:title], subtitle: params[:subtitle], body: body, head_img: params[:image], user_id: current_user.id})
+
+    Image.create({image_src: params[:image_src], caption: params[:caption], post_id: post.id})
+
     tag_ids= params[:word]
     tag_ids.each do |tag_id|
       tag_id= tag_id.to_i
@@ -39,6 +41,7 @@ class PostsController < ApplicationController
       @post.body.gsub!("<br>", "\r\n")
     end
     @tags= @post.tags
+    @images= @post.images
     erb :'posts/edit'
   end
 
@@ -56,6 +59,7 @@ class PostsController < ApplicationController
   end
 
   get '/:id/tags' do
+    admin_only!
     @post= Post.find(params[:id])
     @current_tags = @post.tags
     @other_tags = (Tag.all - @current_tags)
@@ -79,6 +83,7 @@ class PostsController < ApplicationController
   end
 
   get '/:id/tags/new' do
+    admin_only!
     @post= Post.find(params[:id])
     erb :'posts/tags/new'
   end
@@ -87,6 +92,24 @@ class PostsController < ApplicationController
     post= Post.find(params[:id])
     Tag.create({word: params[:word]})
     redirect "/posts/#{post.id}/tags"
+  end
+
+  get '/:id/images/new' do
+    admin_only!
+    @post= Post.find(params[:id])
+    erb :'posts/images/new'
+  end
+
+  post '/:id/images' do
+    post= Post.find(params[:id])
+    Image.create(params[:img])
+    redirect "/posts/#{post.id}"
+  end
+
+  delete '/:id/images/:img_id' do
+    post= Post.find(params[:id])
+    Image.destroy(params[:img_id])
+    redirect "/posts/#{post.id}"
   end
 
 

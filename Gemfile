@@ -9,3 +9,4 @@ gem 'guard-livereload'
 
 gem 'rake'
 gem 'pry'
+gem 'thin'

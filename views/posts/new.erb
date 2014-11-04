@@ -5,6 +5,8 @@
 		Subtitle: <input type="text" name="subtitle">
 		Body: <textarea name="body" rows="15" cols="100%"></textarea>
 		Head Image: <input type="text" name="image">
+		Body Image: <input type="text" name="image_src">
+		Caption: <input type="text" name="caption">
 		Tags: <br>
 		<% @tags.each do |tag| %>
 		<input type="checkbox" name="word[]" value="<%= tag.id %>"><%= tag.word %><br>

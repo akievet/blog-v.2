@@ -2,7 +2,10 @@ require 'bundler'
 Bundler.require
 
 require 'sinatra/activerecord/rake'
-require './connection'
+ActiveRecord::Base.establish_connection({
+    adapter: 'postgresql',
+    database: 'blog'
+})
 
 namespace :db do
   desc 'create blog database'
