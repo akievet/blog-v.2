@@ -1,5 +1,8 @@
+<div class="twelve columns offset-by-one">
+	<h3>Posts tagged "<%= @tag.word %>"</h3>
 <ul>
 	<% @posts.each do |post| %>
 	<li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
 	<% end %>
 </ul>
+</div>

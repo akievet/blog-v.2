@@ -17,13 +17,14 @@
 			</div>
 			<h3 class="title"><%= post.title %></h3>
 			<h4 class="subtitle"><%= post.subtitle %></h4>
-		</div>
-	
-</a>
-	<% if admin %>
+			
+			
+		</a>
+		<% if admin %>
 		<a href="/posts/<%= post.id %>/edit">Edit</a>
-	<% end %>
+		<% end %>
 	</div>
+</div>
 <% end %>
 
 </div>

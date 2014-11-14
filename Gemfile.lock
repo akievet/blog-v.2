@@ -49,6 +49,9 @@ GEM
     method_source (0.8.2)
     minitest (5.4.2)
     multi_json (1.10.1)
+    numbers_and_words (0.10.0)
+      activesupport
+      i18n
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -87,6 +90,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   guard-livereload
+  numbers_and_words
   pg
   pry
   rake

@@ -1,7 +1,7 @@
 class TaggedController < ApplicationController
   get '/:word' do
-    tag = Tag.where(word: params[:word])
-    @posts= tag[0].posts
+    @tag = Tag.where(word: params[:word])[0]
+    @posts= @tag.posts
 
     erb :'tagged/show'
   end
