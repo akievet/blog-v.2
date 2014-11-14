@@ -1,8 +1,8 @@
 require 'bundler'
 Bundler.require
 
-require ./helpers/application_helper
-require ./controllers/application_controller
+require './helpers/application_helper'
+require './controllers/application_controller'
 
 Dir.glob('./{helpers,models,controllers}/*.rb').each do |file|
 	require file
