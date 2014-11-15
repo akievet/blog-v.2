@@ -1,6 +1,6 @@
 <div class="eleven columns">
 <h1>Edit Post</h1>
-<form action="/posts/<%= @post.id %>" method="post">
+<form action="/posts/<%= @post.id %>" method="post" class="edit-post">
 	<input type="hidden" name="_method" value="patch">
 	Title: <input type="text" name="title" value="<%= @post.title %>">
 	Subtitle: <input type="text" name="subtitle" value="<%= @post.subtitle %>">
@@ -10,13 +10,14 @@
 </form>
 </div>
 <div class="four columns offset-by-one">
-	<h4>Current Tags</h4>
-	<% @tags.each do |tag| %>
-	<ul>
-		<li><%= tag.word %></li>
-	</ul>
-	<% end %>
-	<a href="/posts/<%= @post.id %>/tags">Manage Tags</a>
+	
+	<h4>Tags</h4>
+	<ul class="edit-tags"></ul>
+
+
+
+
+
 
 	<h4>Body Image(s)</h4>
 	<% @images.each do |image| %>
@@ -29,3 +30,17 @@
 	<% end %>
 	<a href="/posts/<%= @post.id %>/images/new">Add an Image</a>
 </div>
+
+
+<script>
+	$(function(){
+
+
+		getTagState();
+
+		
+
+
+
+	});
+</script>

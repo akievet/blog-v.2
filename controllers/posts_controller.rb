@@ -59,28 +59,30 @@ class PostsController < ApplicationController
   end
 
   get '/:id/tags' do
-    admin_only!
-    @post= Post.find(params[:id])
-    @current_tags = @post.tags
-    @other_tags = (Tag.all - @current_tags)
-    erb :'posts/tags/edit'
+    content_type :json
+    post= Post.find(params[:id])
+
+    {
+      current_tags: post.tags,
+      other_tags: (Tag.all - post.tags)
+    }.to_json
+  end
+
+  delete '/:id/tags' do
+    content_type :json
+    post= Post.find(params[:id])
+    instance = (TagInstance.where("tag_id = ? AND post_id = ?", params[:tagId], params[:id]))[0]
+    post.tag_instances.delete(instance)
+    {status: 'ok'}.to_json
   end
 
   post '/:id/tags' do
-    post= Post.find(params[:id])
-    current_instances= post.tag_instances
-    current_instances.each do |tag_instance|
-      TagInstance.destroy(tag_instance.id)
-    end
-
-    tag_ids= params[:word]
-    tag_ids.each do |tag_id|
-      tag_id= tag_id.to_i
-      TagInstance.create({tag_id: tag_id, post_id: post.id})
-    end
-
-    redirect "/posts/#{post.id}"
+    content_type :json
+    post = Post.find(params[:id])
+    post.tag_instances << TagInstance.new({tag_id: params[:tagId], post_id: post.id})
+    {status: 'ok'}.to_json
   end
+
 
   get '/:id/tags/new' do
     admin_only!
