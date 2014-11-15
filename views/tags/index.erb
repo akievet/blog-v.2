@@ -1,5 +1,7 @@
+<div class="sixteen columns">
 <ul>
 	<% @tags.each do |tag| %>
 	<a href="/tags/<%= tag.id %>/edit"><li> <%= tag.word %></li></a>
 	<% end %>
 </ul>
+</div>

@@ -1,3 +1,4 @@
+<div class="sixteen columns">
 <form action="/posts/<%= @post.id %>/tags" method="post">
 	<% @current_tags.each do |tag| %>	
 	<input type="checkbox" name="word[]" value="<%= tag.id %>" checked><%= tag.word %><br>
@@ -9,3 +10,4 @@
 </form>
 
 <a href="/posts/<%= @post.id %>/tags/new">Add New</a>
+</div>
